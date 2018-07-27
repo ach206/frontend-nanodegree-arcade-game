@@ -79,7 +79,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -95,6 +95,8 @@ var Engine = (function(global) {
         });
         player.update();
     }
+
+
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
@@ -141,6 +143,38 @@ var Engine = (function(global) {
         renderEntities();
     }
 
+function checkCollisions(){
+    allEnemies.forEach(function(enemy){
+    charPositionsY = enemy.y && player.y;
+    charPositionsX = enemy.x && player.x;
+   if( (charPositionsY >= 200) && (charPositionsY < 300) ){
+        if ( (charPositionsX > 10) && (charPositionsX <= 87) ){
+        // console.log(charPositionsX, charPositionsY);
+        } else if ((charPositionsX > 87) && (charPositionsX <= 174)){
+        // console.log(charPositionsX, charPositionsY);
+        }else if ((charPositionsX > 174) && (charPositionsX <= 261)){ 
+        // console.log(charPositionsX, charPositionsY);
+        }else if ((charPositionsX > 261) && (charPositionsX <= 348)){ 
+        // console.log(charPositionsX, charPositionsY);
+        }else if ((charPositionsX > 348) && (charPositionsX < 500)){ 
+        // console.log(charPositionsX, charPositionsY);
+        } else {
+            
+        }
+        // console.log(player.y, enemy.y);
+   } else if ( (charPositionsY > 100) && (charPositionsY < 200) ){
+        // console.log('collide row 2');
+
+   } else if ( (charPositionsY >= 10) && (charPositionsY <= 100) ) {
+        // console.log('collide row 3');
+
+   } else {
+        // console.log('she better be on water or grass!');
+
+   }
+    
+    });
+}
     /* This function is called by the render function and is called on each game
      * tick. Its purpose is to then call the render functions you have defined
      * on your enemy and player entities within app.js

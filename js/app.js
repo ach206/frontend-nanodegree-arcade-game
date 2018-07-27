@@ -16,6 +16,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    let enemyX = this.x;
+    let enemyY = this.y;
     if (this.x > 505){
         this.x = Math.random() * 100;
     } else {
@@ -42,6 +44,8 @@ class Player {
     }
     update(){
         //update x , y positions
+        let playerX = this.x;
+        let playerY = this.y;
         //return whether Player and Enemy positions are the same (collide)
     }
     handleInput(e){
@@ -52,7 +56,7 @@ class Player {
                 if(this.x < 20){
                     userPressed.preventDefault();
                 } else {
-                this.x -= 87;
+                this.x -= 101;
                 }
                 break;
                 //update the x y pos
@@ -61,7 +65,7 @@ class Player {
                 if(this.y < 10){
                     userPressed.preventDefault();
                 } else {
-                this.y -= 87;
+                this.y -= 89;
                 }
                 break;
                 //update the x y pos
@@ -70,7 +74,7 @@ class Player {
                 if(this.x > 400){
                     userPressed.preventDefault();
                 } else {
-                this.x += 83;
+                this.x += 101;
                 }
                 //update the x y pos
                 break;
@@ -79,11 +83,10 @@ class Player {
                 if(this.y > 380){
                     userPressed.preventDefault();
                 } else {
-                this.y += 99;
+                this.y += 89;
                 }
                 //update the x y pos
         }
-        // update(x, y);
     }
 } //closes Player class
 
@@ -91,11 +94,11 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-let player = new Player(200, 404);
-let bugOne = new Enemy(10, 77);
+let player = new Player(202, 415);
+let bugOne = new Enemy(10, 67);
 let bugTwo = new Enemy(202, 150);
-let bugThree = new Enemy(220, 212);
-let bugFour = new Enemy(101, 77);
+let bugThree = new Enemy(220, 232);
+let bugFour = new Enemy(101, 67);
 let allEnemies = [bugOne, bugTwo, bugThree, bugFour];
 
 // This listens for key presses and sends the keys to your
