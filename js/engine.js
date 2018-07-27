@@ -82,6 +82,17 @@ var Engine = (function(global) {
         checkCollisions();
     }
 
+    function checkCollisions(){
+    allEnemies.forEach(function(enemy){
+        if (enemy.x < player.x + player.width &&
+   enemy.x + enemy.width > player.x &&
+   enemy.y < player.y + player.height &&
+   enemy.height + enemy.y > player.y) {
+    console.log('collided');
+}
+    });
+}
+
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
@@ -143,38 +154,7 @@ var Engine = (function(global) {
         renderEntities();
     }
 
-function checkCollisions(){
-    allEnemies.forEach(function(enemy){
-    charPositionsY = enemy.y && player.y;
-    charPositionsX = enemy.x && player.x;
-   if( (charPositionsY >= 200) && (charPositionsY < 300) ){
-        if ( (charPositionsX > 10) && (charPositionsX <= 87) ){
-        // console.log(charPositionsX, charPositionsY);
-        } else if ((charPositionsX > 87) && (charPositionsX <= 174)){
-        // console.log(charPositionsX, charPositionsY);
-        }else if ((charPositionsX > 174) && (charPositionsX <= 261)){ 
-        // console.log(charPositionsX, charPositionsY);
-        }else if ((charPositionsX > 261) && (charPositionsX <= 348)){ 
-        // console.log(charPositionsX, charPositionsY);
-        }else if ((charPositionsX > 348) && (charPositionsX < 500)){ 
-        // console.log(charPositionsX, charPositionsY);
-        } else {
-            
-        }
-        // console.log(player.y, enemy.y);
-   } else if ( (charPositionsY > 100) && (charPositionsY < 200) ){
-        // console.log('collide row 2');
 
-   } else if ( (charPositionsY >= 10) && (charPositionsY <= 100) ) {
-        // console.log('collide row 3');
-
-   } else {
-        // console.log('she better be on water or grass!');
-
-   }
-    
-    });
-}
     /* This function is called by the render function and is called on each game
      * tick. Its purpose is to then call the render functions you have defined
      * on your enemy and player entities within app.js

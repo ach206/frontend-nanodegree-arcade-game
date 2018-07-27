@@ -8,6 +8,8 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.width = 80;
+    this.height = 80;
 };
 
 // Update the enemy's position, required method for game
@@ -38,6 +40,8 @@ class Player {
         this.sprite = 'images/char-pink-girl.png';
         this.x = x;
         this.y = y;
+        this.width = 80;
+        this.height = 80;        
     }
     render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
