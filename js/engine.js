@@ -69,42 +69,42 @@ var Engine = (function(global) {
     }
 
     /* This function is called by main (our game loop) and itself calls all
-     * of the functions which may need to update entity's data. Based on how
-     * you implement your collision detection (when two entities occupy the
-     * same space, for instance when your character should die), you may find
-     * the need to add an additional function call here. For now, we've left
-     * it commented out - you may or may not want to implement this
-     * functionality this way (you could just implement collision detection
-     * on the entities themselves within your app.js file).
+     * of the functions which may need to update entity's data.
      */
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
     }
-
+    /*
+    @description uses the x/y coordinates and width/height 
+    of the entities to determine if they touch (collide)
+    if they do collide-sets player back to start x,y
+    example code from 
+    https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    */
     function checkCollisions(){
-    allEnemies.forEach(function(enemy){
-        if (enemy.x < player.x + player.width &&
-   enemy.x + enemy.width > player.x &&
-   enemy.y < player.y + player.height &&
-   enemy.height + enemy.y > player.y) {
-    console.log('collided');
-}
-    });
-}
+        allEnemies.forEach(function(enemy){
+            if (enemy.x < player.x + player.width &&
+           enemy.x + enemy.width > player.x &&
+           enemy.y < player.y + player.height &&
+           enemy.height + enemy.y > player.y) {
+                player.x = 202;
+                player.y = 415;
+            }
+        });//close forEach
+    }
 
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
      * player object. These update methods should focus purely on updating
-     * the data/properties related to the object. Do your drawing in your
-     * render methods.
+     * the data/properties related to the object. 
      */
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+        // player.update();
     }
 
 
@@ -161,7 +161,7 @@ var Engine = (function(global) {
      */
     function renderEntities() {
         //  Loop through all of the objects within the allEnemies array and call
-        //  * the render function you have defined.
+        //  the render function you have defined.
          
         allEnemies.forEach(function(enemy) {
             enemy.render();
