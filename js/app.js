@@ -17,8 +17,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x > 505){
-        this.x = 0;
-        this.x = dt * (Math.random() * 101);
+        this.x = Math.random() * 100;
     } else {
     this.x += dt * (Math.random() * this.x);
     }
@@ -50,27 +49,38 @@ class Player {
         switch(userPressed) {
             case "left":
                 //move player left
-                console.log('left triggered');
+                if(this.x < 20){
+                    userPressed.preventDefault();
+                } else {
                 this.x -= 87;
+                }
                 break;
                 //update the x y pos
             case "up":
-                this.y -= 87;
                 //move player up
-                console.log('up triggered');
+                if(this.y < 10){
+                    userPressed.preventDefault();
+                } else {
+                this.y -= 87;
+                }
                 break;
-
                 //update the x y pos
             case "right":
-                this.x += 83;
                 //move player right
-                console.log('right triggered');
+                if(this.x > 400){
+                    userPressed.preventDefault();
+                } else {
+                this.x += 83;
+                }
                 //update the x y pos
                 break;
             case "down":
-                this.y += 101;
                 //move player down
-                console.log('down triggered');
+                if(this.y > 380){
+                    userPressed.preventDefault();
+                } else {
+                this.y += 99;
+                }
                 //update the x y pos
         }
         // update(x, y);
