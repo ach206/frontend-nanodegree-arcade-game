@@ -1,8 +1,8 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-(https://media.giphy.com/media/RkJjoIzl7Waeg0I3ZG/giphy.gif
-)
+<img src="https://media.giphy.com/media/RkJjoIzl7Waeg0I3ZG/giphy.gif"/>
+
 
 ## How to Play
 Use arrow keys (up, down, left, right) to control your player.
