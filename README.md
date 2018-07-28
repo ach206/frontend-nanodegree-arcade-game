@@ -1,12 +1,18 @@
 frontend-nanodegree-arcade-game
 ===============================
 
+## Demo
 <img src="https://media.giphy.com/media/RkJjoIzl7Waeg0I3ZG/giphy.gif"/>
 
 
 ## How to Play
-Use arrow keys (up, down, left, right) to control your player.
+1) Download ZIP file or clone the repo:
 
+    ```git clone https://github.com/ach206/frontend-nanodegree-arcade-game.git```
+
+2) Navigate to index.html and open file in your internet browser
+
+3) Use arrow keys (up, down, left, right) to control your player.
 ## How to Win
 Do your best to avoid colliding with the enemy, Tommy Pickles.
 The game is won once your player makes it to the blue water
