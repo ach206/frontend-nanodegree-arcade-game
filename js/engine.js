@@ -170,6 +170,12 @@ var Engine = (function(global) {
         });
         player.render();
     }
+         // when the user does not want to play again
+    donePlaying.addEventListener('click', function noPlay() {
+    console.log('logs it');
+    //TODO: modal not disappearing
+    modal.style = "display: none;";
+    });
 
     /* This function starts a new game 
      */
@@ -179,11 +185,6 @@ var Engine = (function(global) {
         modal.style = "display: none;";
     });
 
-         // when the user does not want to play again
-    donePlaying.addEventListener('click', function () {
-        console.log('logs it');
-        modal.style = "display: none;";
-    });
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
