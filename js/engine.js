@@ -27,6 +27,10 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+    let modal = document.querySelector('.modal');
+    let donePlaying = document.querySelector('#noPlay');
+    let playAgain = document.querySelector('#yesPlay');
+
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -63,7 +67,6 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
-        reset();
         lastTime = Date.now();
         main();
     }
@@ -89,7 +92,7 @@ var Engine = (function(global) {
            enemy.y < player.y + player.height &&
            enemy.height + enemy.y > player.y) {
                 player.x = 202;
-                player.y = 415;
+                player.y = 464;
             }
         });//close forEach
     }
@@ -104,7 +107,7 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        // player.update();
+        player.update();
     }
 
 
@@ -155,28 +158,32 @@ var Engine = (function(global) {
     }
 
 
-    /* This function is called by the render function and is called on each game
+    /* This function is called by the render ftion and is called on each game
      * tick. Its purpose is to then call the render functions you have defined
      * on your enemy and player entities within app.js
      */
     function renderEntities() {
         //  Loop through all of the objects within the allEnemies array and call
-        //  the render function you have defined.
-         
+        //  the render function you have defined.     
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
-
         player.render();
     }
 
-    /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
+    /* This function starts a new game 
      */
-    function reset() {
-        // noop
-    }
+     playAgain.addEventListener('click', function reset() {
+        player.x = 202;
+        player.y = 464;
+        modal.style = "display: none;";
+    });
+
+         // when the user does not want to play again
+    donePlaying.addEventListener('click', function () {
+        console.log('logs it');
+        modal.style = "display: none;";
+    });
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
@@ -186,9 +193,9 @@ var Engine = (function(global) {
         'images/stone-block.png',
         'images/water-block.png',
         'images/grass-block.png',
-        'images/enemy-bug.png',
+        'images/tommy-ball.png',
         'images/char-boy.png',
-        'images/char-pink-girl.png'
+        'images/susies.png'
     ]);
     Resources.onReady(init);
 

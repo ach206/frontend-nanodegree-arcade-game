@@ -4,7 +4,7 @@
 @param values of the x-coordinates and y-coordinates for Enemy
 */
 var Enemy = function(x, y) {
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = 'images/tommy-ball.png';
     this.x = x;
     this.y = y;
     this.width = 80;
@@ -35,18 +35,24 @@ the water
 */
 class Player {
     constructor(x, y){
-        this.sprite = 'images/char-pink-girl.png';
+        this.sprite = 'images/susies.png';
         this.x = x;
         this.y = y;
-        this.width = 80;
+        this.width = 60;
         this.height = 80;        
     }
     //@description Draws the player on the screen
     render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    // update(){
-    //  }
+
+    update(){
+        let modal = document.querySelector('.modal');
+        if(this.y <= 50){
+            //winner
+            modal.style = "display: block;";
+        }
+     }
 
     /*
     @description will respond to keystrokes (up down left right arrow)
@@ -65,10 +71,10 @@ class Player {
                 break;
             case "up":
                 //move player up
-                if(this.y < 10){
+                if(this.y < 40){
                     userPressed.preventDefault();
                 } else {
-                this.y -= 89;
+                this.y -= 83;
                 }
                 break;
             case "right":
@@ -81,10 +87,10 @@ class Player {
                 break;
             case "down":
                 //move player down
-                if(this.y > 380){
+                if(this.y > 450){
                     userPressed.preventDefault();
                 } else {
-                this.y += 89;
+                this.y += 83;
                 }
         }
     }
@@ -97,12 +103,12 @@ class Player {
 then place the new objects in allEnemies array so we
 can loop through them in engine.js
 */
-let player = new Player(202, 415);
-let bugOne = new Enemy(10, 67);
-let bugTwo = new Enemy(202, 150);
-let bugThree = new Enemy(220, 232);
-let bugFour = new Enemy(101, 67);
-let allEnemies = [bugOne, bugTwo, bugThree, bugFour];
+let player = new Player(202, 464);
+let enemyOne = new Enemy(10, 135);
+let enemyTwo = new Enemy(202, 217);
+let enemyThree = new Enemy(220, 300);
+let enemyFour = new Enemy(101, 135);
+let allEnemies = [enemyOne, enemyTwo, enemyThree, enemyFour];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
