@@ -4,6 +4,7 @@ frontend-nanodegree-arcade-game
 ## Demo
 <img src="https://media.giphy.com/media/RkJjoIzl7Waeg0I3ZG/giphy.gif"/>
 
+[See the game live](https://ach206.github.io/frontend-nanodegree-arcade-game/)
 
 ## How to Play
 1) Download ZIP file or clone the repo:
