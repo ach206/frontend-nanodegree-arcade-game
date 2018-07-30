@@ -3,20 +3,23 @@
 @constructor Enemy, our player must avoid
 @param values of the x-coordinates and y-coordinates for Enemy
 */
-var Enemy = function(x, y, speed) {
+class Enemy {
+  constructor(x, y, speed){
     this.sprite = 'images/tommy-ball.png';
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.width = 80;
     this.height = 80;
-};
+  }
+
+
 /*
 @description when the Emeny runs off the right side of canvas, the enemy will
 return back to the left side of the canvas
 @param = dt, a time delta between ticks
 */
-Enemy.prototype.update = function(dt) {
+update(dt) {
     if (this.x > 505){
         this.x = Math.random() * 100;
     } else {
@@ -25,9 +28,10 @@ Enemy.prototype.update = function(dt) {
 };
 
 //@description Draws the enemy on the screen
-Enemy.prototype.render = function() {
+render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+} // closes Enemy class
 
 /*
 @constructor for the player, whose goal is to make it to

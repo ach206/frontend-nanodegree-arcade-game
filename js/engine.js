@@ -180,8 +180,6 @@ var Engine = (function(global) {
 
     // when the user does not want to play again
     donePlaying.addEventListener('click', function() {
-      console.log('logs it');
-      //TODO: modal not disappearing
       modal.style = "display: none;";
     });
 
