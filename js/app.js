@@ -22,7 +22,7 @@ Enemy.prototype.update = function(dt) {
     this.x += dt * (Math.random() * this.x);
     }
 };
- 
+
 //@description Draws the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -39,7 +39,7 @@ class Player {
         this.x = x;
         this.y = y;
         this.width = 60;
-        this.height = 80;        
+        this.height = 80;
     }
     //@description Draws the player on the screen
     render(){
@@ -64,15 +64,15 @@ class Player {
             case "left":
                 //move player left
                 if(this.x < 20){
-                    userPressed.preventDefault();
+                    return false;
                 } else {
                 this.x -= 101;
                 }
                 break;
             case "up":
                 //move player up
-                if(this.y < 40){
-                    userPressed.preventDefault();
+                if(this.y <= 49){
+                  return false;
                 } else {
                 this.y -= 83;
                 }
@@ -80,7 +80,7 @@ class Player {
             case "right":
                 //move player right
                 if(this.x > 400){
-                    userPressed.preventDefault();
+                  return false;
                 } else {
                 this.x += 101;
                 }
@@ -88,7 +88,7 @@ class Player {
             case "down":
                 //move player down
                 if(this.y > 450){
-                    userPressed.preventDefault();
+                  return false;
                 } else {
                 this.y += 83;
                 }
