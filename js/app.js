@@ -1,12 +1,13 @@
-
+'use strict';
 /*
 @constructor Enemy, our player must avoid
 @param values of the x-coordinates and y-coordinates for Enemy
 */
-var Enemy = function(x, y) {
+var Enemy = function(x, y, speed) {
     this.sprite = 'images/tommy-ball.png';
     this.x = x;
     this.y = y;
+    this.speed = speed;
     this.width = 80;
     this.height = 80;
 };
@@ -19,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 505){
         this.x = Math.random() * 100;
     } else {
-    this.x += dt * (Math.random() * this.x);
+    this.x += Math.floor(this.speed * dt);
     }
 };
 
@@ -63,34 +64,26 @@ class Player {
         switch(userPressed) {
             case "left":
                 //move player left
-                if(this.x < 20){
-                    return false;
-                } else {
+                if(this.x > 20){
                 this.x -= 101;
                 }
                 break;
             case "up":
                 //move player up
-                if(this.y <= 49){
-                  return false;
-                } else {
+                if(this.y > 49){
                 this.y -= 83;
                 }
                 break;
             case "right":
                 //move player right
-                if(this.x > 400){
-                  return false;
-                } else {
+                if(this.x < 400){
                 this.x += 101;
                 }
                 break;
             case "down":
                 //move player down
-                if(this.y > 450){
-                  return false;
-                } else {
-                this.y += 83;
+                if(this.y < 450){
+                  this.y += 83;
                 }
         }
     }
@@ -104,10 +97,10 @@ then place the new objects in allEnemies array so we
 can loop through them in engine.js
 */
 let player = new Player(202, 464);
-let enemyOne = new Enemy(10, 135);
-let enemyTwo = new Enemy(202, 217);
-let enemyThree = new Enemy(220, 300);
-let enemyFour = new Enemy(101, 135);
+let enemyOne = new Enemy(10, 135, 117);
+let enemyTwo = new Enemy(152, 217, 198);
+let enemyThree = new Enemy(220, 300, 217);
+let enemyFour = new Enemy(101, 135, 172);
 let allEnemies = [enemyOne, enemyTwo, enemyThree, enemyFour];
 
 // This listens for key presses and sends the keys to your
