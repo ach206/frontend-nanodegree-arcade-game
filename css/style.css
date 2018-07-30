@@ -17,6 +17,7 @@ body {
     color: #fff;
     font: bold .8em Arial, sans-serif;
     text-transform: uppercase;
+}
 
 #modalText, .modalBtn {
   display: flex;
