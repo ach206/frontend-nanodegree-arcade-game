@@ -49,11 +49,11 @@ class Player {
 
     update(){
         let modal = document.querySelector('.modal');
-        if(this.y <= 50){
-            //winner
-            modal.style = "display: block;";
-        }
-     }
+          if(this.y <= 50){
+              //winner
+              modal.style = "display: block;";
+          }
+      }
 
     /*
     @description will respond to keystrokes (up down left right arrow)
@@ -72,6 +72,7 @@ class Player {
                 //move player up
                 if(this.y > 49){
                 this.y -= 83;
+                player.update();
                 }
                 break;
             case "right":

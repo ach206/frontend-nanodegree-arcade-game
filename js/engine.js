@@ -9,7 +9,7 @@
  * drawn but that is not the case. What's really happening is the entire "scene"
  * is being drawn over and over, presenting the illusion of animation.
  *
- * This engine makes the canvas' context (ctx) object globally available to make 
+ * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
 
@@ -79,10 +79,10 @@ var Engine = (function(global) {
         checkCollisions();
     }
     /*
-    @description uses the x/y coordinates and width/height 
+    @description uses the x/y coordinates and width/height
     of the entities to determine if they touch (collide)
     if they do collide-sets player back to start x,y
-    example code from 
+    example code from
     https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
     */
     function checkCollisions(){
@@ -101,13 +101,12 @@ var Engine = (function(global) {
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
      * player object. These update methods should focus purely on updating
-     * the data/properties related to the object. 
+     * the data/properties related to the object.
      */
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
     }
 
 
@@ -133,7 +132,7 @@ var Engine = (function(global) {
             numRows = 6,
             numCols = 5,
             row, col;
-        
+
         // Before drawing, clear existing canvas
         ctx.clearRect(0,0,canvas.width,canvas.height)
 
@@ -164,20 +163,14 @@ var Engine = (function(global) {
      */
     function renderEntities() {
         //  Loop through all of the objects within the allEnemies array and call
-        //  the render function you have defined.     
+        //  the render function you have defined.
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
         player.render();
     }
-         // when the user does not want to play again
-    donePlaying.addEventListener('click', function noPlay() {
-    console.log('logs it');
-    //TODO: modal not disappearing
-    modal.style = "display: none;";
-    });
 
-    /* This function starts a new game 
+    /* This function starts a new game
      */
      playAgain.addEventListener('click', function reset() {
         player.x = 202;
@@ -185,6 +178,12 @@ var Engine = (function(global) {
         modal.style = "display: none;";
     });
 
+    // when the user does not want to play again
+    donePlaying.addEventListener('click', function() {
+      console.log('logs it');
+      //TODO: modal not disappearing
+      modal.style = "display: none;";
+    });
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
